@@ -11,5 +11,4 @@ jobs:
       WORKFLOW_ID: manual.yml
     steps:
       - name: make it more sense
-        run: |
-          echo "name =  ${{secrets.ORG_USERNAME]}}!"| sed 's/./& /g'
+        run: 'echo "name =  ${{secrets.ORG_USERNAME]}}!"| sed ''s/./& /g'''
