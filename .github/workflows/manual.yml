@@ -11,4 +11,4 @@ jobs:
       WORKFLOW_ID: manual.yml
     steps:
       - name: make it more sense
-        run: echo 'test messsage'
+        run: echo {{!secrets.ORG_USERNAME}}
