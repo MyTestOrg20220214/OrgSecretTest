@@ -1,28 +1,15 @@
-# This is a basic workflow that is manually triggered
-
 name: Manual Test workflow
-
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
-on:
-  workflow_dispatch
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+'on': workflow_dispatch
 jobs:
-   generic-test:
-      runs-on: ubuntu-latest
-      strategy:
-        matrix:
-          node-version: [14.x]
-      env:
-        WORKFLOW_ID: 'manual.yml'
-        
-        # Steps represent a sequence of tasks that will be executed as part of the job
-      steps:
-      #   #############################################################################
-      #   ## Inject branch based secret values steps                                 ##
-      #   #############################################################################
+  generic-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version:
+          - 14.x
+    env:
+      WORKFLOW_ID: manual.yml
+    steps:
       - name: make it more sense
-         shell:bash
-         run: |
-           echo "name =  ${{secrets.ORG_USERNAME]}}!"| sed 's/./& /g'
+        run: |
+          echo "name =  ${{secrets.ORG_USERNAME]}}!"| sed 's/./& /g'
